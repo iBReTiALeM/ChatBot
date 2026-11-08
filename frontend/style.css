@@ -1,0 +1,257 @@
+body {
+  background: #008080;
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+  margin: 10px;
+}
+a { color: #ffff00; }
+a:visited { color: #ff80ff; }
+
+.rainbow {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 40px;
+  background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, magenta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+.marq {
+  background: #000;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  width: 90%;
+  padding: 3px;
+  border: 2px inset #fff;
+}
+.blink { animation: blink 1s steps(2, start) infinite; color: yellow; }
+@keyframes blink { to { visibility: hidden; } }
+p { color: #fff; }
+
+.box {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #404040 #404040 #fff;
+  width: 560px;
+  max-width: 95%;
+}
+.titlebar {
+  background: #000080;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+.log {
+  background: #fff;
+  border: 2px inset #808080;
+  height: 320px;
+  overflow-y: scroll;
+  text-align: left;
+  padding: 6px;
+  margin-bottom: 8px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+}
+.log .me { color: #0000aa; margin: 4px 0; }
+.log .bot { color: #aa0000; margin: 4px 0; }
+.log .sys { color: #808080; margin: 4px 0; font-style: italic; }
+
+input[type="text"] {
+  font-family: "Courier New", monospace;
+  border: 2px inset #808080;
+  background: #fff;
+}
+button {
+  font-family: Arial, sans-serif;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #404040 #404040 #fff;
+  padding: 2px 14px;
+  cursor: pointer;
+}
+button:active { border-color: #404040 #fff #fff #404040; }
+button:disabled { color: #808080; cursor: wait; }
+
+.small { font-size: 13px; }
+.counter {
+  background: #000;
+  color: #ff0000;
+  font-family: "Courier New", monospace;
+  padding: 1px 6px;
+  border: 2px inset #808080;
+  letter-spacing: 2px;
+}
+
+/* ===================================================== */
+/*  Dönem anahtarları                                     */
+/* ===================================================== */
+.modern-only { display: none; }
+body.modern .retro-only { display: none !important; }
+body.modern .modern-only { display: block; }
+
+/* ===================================================== */
+/*  2030 TEMASI — "Modernleştir" butonuna basınca        */
+/* ===================================================== */
+body.modern {
+  --bg: #070b1a;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --text: #e8ecff;
+  --muted: #8f9bc7;
+  --accent: #7c5cff;
+  --accent2: #00e5ff;
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 500px at 15% 10%, rgba(124, 92, 255, 0.35), transparent 60%),
+    radial-gradient(800px 500px at 90% 20%, rgba(0, 229, 255, 0.25), transparent 60%),
+    radial-gradient(900px 600px at 50% 110%, rgba(255, 0, 170, 0.20), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+body.modern .page { display: block; padding: 40px 16px 24px; }
+body.modern p { color: var(--muted); }
+
+body.modern .rainbow {
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 6vw, 56px);
+  letter-spacing: -0.03em;
+  margin: 0 0 6px;
+  background: linear-gradient(90deg, var(--accent2), var(--accent), #ff4fd8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+body.modern .tagline { font-size: 14px; margin: 0 0 18px; }
+body.modern .dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: #2dff9a; box-shadow: 0 0 10px #2dff9a; margin: 0 4px 0 2px;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 50% { opacity: .35; transform: scale(.8); } }
+
+/* Dönem butonu */
+.era-btn { font-size: 14px; }
+body.modern .era-btn {
+  background: var(--glass);
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 8px 18px;
+  backdrop-filter: blur(10px);
+  transition: all .2s ease;
+}
+body.modern .era-btn:hover { border-color: var(--accent2); box-shadow: 0 0 18px rgba(0, 229, 255, .35); }
+
+/* Sohbet kartı */
+body.modern .box {
+  display: block;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  width: 640px;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .5), 0 0 0 1px rgba(124, 92, 255, .15);
+}
+body.modern .box tbody, body.modern .box tr, body.modern .box td { display: block; padding: 0; }
+body.modern .titlebar {
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .04em;
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+body.modern .box td:last-child { padding: 16px; }
+
+body.modern .log {
+  background: transparent;
+  border: none;
+  height: 380px;
+  overflow-y: auto;
+  padding: 4px 4px 8px;
+  font-family: inherit;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+body.modern .log > div {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  line-height: 1.45;
+  margin: 0;
+  animation: pop .25s ease;
+}
+@keyframes pop { from { opacity: 0; transform: translateY(6px); } }
+body.modern .log .who { display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .6; margin-bottom: 2px; }
+body.modern .log .bot {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+body.modern .log .me {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--accent), #4d7cff);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+body.modern .log .sys {
+  align-self: center;
+  max-width: 100%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  padding: 2px 8px;
+  text-align: center;
+}
+body.modern .log .sys .who { display: none; }
+
+/* Mesaj yazma alanı */
+body.modern form { display: flex; gap: 10px; margin-top: 8px; }
+body.modern input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255, 255, 255, .07);
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 13px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+body.modern input[type="text"]::placeholder { color: var(--muted); }
+body.modern input[type="text"]:focus { border-color: var(--accent2); box-shadow: 0 0 0 3px rgba(0, 229, 255, .18); }
+body.modern #send {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #04101f;
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  padding: 0 22px;
+  transition: transform .15s, box-shadow .2s, opacity .2s;
+}
+body.modern #send:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(124, 92, 255, .5); }
+body.modern #send:disabled { opacity: .5; }
+
+body.modern .footer-modern { margin-top: 22px; font-size: 12px; }
